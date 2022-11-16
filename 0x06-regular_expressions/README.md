@@ -1,1 +1,3 @@
-This directory contains project tasks file on regular expression for the alx software engineering programme
+# Regular_expressions
+In this project, I learned about Regular_expressions as part of my projects for the ALX Software Engineering Programme
+* Koredeycode
