@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Configures an Ubuntu Server
+
+echo -e "127.0.0.2\tlocalhost" > ~/tmp
+echo -e "8.8.8.8\tfacebook.com" >> ~/tmp
+cp -f ~/tmp /etc/hosts
+rm ~/tmp
