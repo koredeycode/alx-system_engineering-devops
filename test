@@ -1,5 +1,0 @@
-#!/bin/bash
-
-res="This is"
-res="$res that"
-echo "$res"
