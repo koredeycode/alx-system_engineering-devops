@@ -1,8 +1,7 @@
-    file {'/tmp/school':
-        ensure  => file,
-        content => 'I love Puppet',
-        mode    => '0744',
-        owner   => 'www-data',
-        group   => 'www-data',
-        }
+#!/usr/bin/puppet
+# install flask from pip3
 
+package {'flask':
+    ensure   => '2.1.0',
+    provider => 'pip3',
+}
