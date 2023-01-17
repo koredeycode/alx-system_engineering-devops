@@ -2,7 +2,7 @@
 
 exec {'install_nginx':
     command => 'sudo apt-get -y update; sudo apt-get -y install nginx',
-    unless  => 'dpkg -l | grep nginx',
+    unless  => '/usr/bin/dpkg -l | grep nginx',
 }
 
 exec {'index_html':
