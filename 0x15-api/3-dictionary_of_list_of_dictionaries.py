@@ -13,7 +13,7 @@ def main():
         data = response.json()
         users = {}
         for datum in data:
-            users[str(datum.get("id"))] = datum.get("name")
+            users[str(datum.get("id"))] = datum.get("username")
 
     with requests.get(url + "todos") as response:
         toDos = response.json()
