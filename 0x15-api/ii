@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-Check student .CSV output of user information
+Check student JSON output
 """
 
-import csv
+import json
 import requests
 import sys
 
@@ -12,24 +12,15 @@ todos_url = "https://jsonplaceholder.typicode.com/todos"
 
 
 def user_info(id):
-    """ Check user information """
+    """ Check user info """
+    
+    with open(str(id) + '.json', 'r') as f:
+        student_json = json.load(f)
 
-    total_tasks = 0
-    response = requests.get(todos_url).json()
-    for i in response:
-        if i['userId'] == id:
-            total_tasks += 1
-
-    num_lines = 0
-    with open(str(id) + ".csv", 'r') as f:
-        for line in f:
-            if not line == '\n':
-                num_lines += 1
-
-    if total_tasks == num_lines:
-        print("Number of tasks in CSV: OK")
+    if student_json.get(str(id)) and len(student_json) == 1:
+        print("Correct USER_ID: OK")
     else:
-        print("Number of tasks in CSV: Incorrect")
+        print("Correct USER_ID: Incorrect")
 
 
 if __name__ == "__main__":

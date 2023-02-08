@@ -7,17 +7,15 @@ import sys
 
 
 def main():
-    url1 = 'https://jsonplaceholder.typicode.com/users'
-    url2 = 'https://jsonplaceholder.typicode.com/todos'
+    url = 'https://jsonplaceholder.typicode.com/'
 
-    with requests.get(url1) as response:
+    with requests.get(url + "users") as response:
         data = response.json()
         users = {}
         for datum in data:
             users[str(datum.get("id"))] = datum.get("name")
-    print(users)
 
-    with requests.get(url2) as response:
+    with requests.get(url + "todos") as response:
         toDos = response.json()
         tasks = {}
         for toDo in toDos:
