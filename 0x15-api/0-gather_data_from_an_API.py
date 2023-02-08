@@ -27,9 +27,9 @@ def main():
 
         tstr = "\n\t ".join(userToDosDone)
         out = "Employee {} is done with tasks({}/{}):\n\t {}".format(employee,
-                                                                    tasksDone,
-                                                                    tasks,
-                                                                    tstr)
+                                                                     tasksDone,
+                                                                     tasks,
+                                                                     tstr)
         print(out)
 
 
