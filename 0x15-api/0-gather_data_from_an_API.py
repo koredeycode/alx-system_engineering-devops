@@ -25,8 +25,8 @@ def main():
                          if userToDo.get("completed") is True]
         tasksDone = len(userToDosDone)
 
-        tstr = "\n\t".join(userToDosDone)
-        out = "Employee {} is done with tasks({}/{}):\n\t{}".format(employee,
+        tstr = "\n\t ".join(userToDosDone)
+        out = "Employee {} is done with tasks({}/{}):\n\t {}".format(employee,
                                                                     tasksDone,
                                                                     tasks,
                                                                     tstr)
