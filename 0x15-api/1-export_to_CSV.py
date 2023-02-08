@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Gather data from a API"""
 
+import csv
 import requests
 import sys
 
@@ -14,16 +15,14 @@ def main():
 
     with requests.get(url + "todos", params={"userId": userId}) as response:
         toDos = response.json()
-        total = len(toDos)
-        toDosDone = [toDo.get("title") for toDo in toDos
-                     if toDo.get("completed") is True]
-        done = len(toDosDone)
 
-        tstr = "\n\t ".join(toDosDone)
-        out = "Employee {} is done with tasks({}/{}):\n\t {}".\
-              format(user.get("name"), done, total, tstr)
-        print(out)
-
+        with open("{}.csv".format(userId), "w") as f:
+            writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+            for toDo in toDos:
+                completed = toDo.get("completed")
+                title = toDo.get("title")
+                name = user.get("name")
+                writer.writerow([userId, name, completed, title])
 
 if __name__ == "__main__":
     main()
